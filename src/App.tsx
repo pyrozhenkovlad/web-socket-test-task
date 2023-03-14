@@ -12,6 +12,11 @@ function App() {
     socket.onopen = () => {
       setWebSocket(socket);
     };
+    return () => {
+      if (webSocket) {
+        webSocket.close();
+      }
+    };
   }, []);
 
   const start = () => {
